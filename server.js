@@ -13,7 +13,7 @@ mongoose.connect(process.env.CONNECTIONSTRING,
   })
   .catch(e => console.log(e));
 const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const MongoDBStore = require('connect-mongo');
 const flash = require('connect-flash');
 const routes = require('./routes');
 const path = require('path');
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const sessionOptions = session({
   secret: 'akasdfj0út23453456+54qt23qv  qwf qwer qwer qewr asdasdasda a6()',
-  store: MongoStore.create({ mongoUrl: "mongodb+srv://gabrielgh21415:92552334@cluster0.frefrya.mongodb.net/?retryWrites=true&w=majority" }),
+  store: MongoDBStore.create({ mongoUrl:"mongodb+srv://gabrielgh21415:92552334@cluster0.frefrya.mongodb.net/?retryWrites=true&w=majority" }),
   resave: false,
   saveUninitialized: false,
   cookie: {
