@@ -37,6 +37,20 @@ const sessionOptions = session({
     httpOnly: true
   }
 });
+
+const mongoClientPromise = new Promise((resolve) => {
+  mongoose.connection.on("connected", () => {
+      const client = mongoose.connection.getClient();
+      resolve(client);
+  });
+});
+
+const sessionStore = MongoStore.create({
+  clientPromise: mongoClientPromise,
+  dbName: "myDb",
+  collection: "sessions"
+});
+
 app.use(sessionOptions);
 app.use(flash());
 
