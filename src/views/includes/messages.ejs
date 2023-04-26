@@ -1,0 +1,23 @@
+<% if (errors.length > 0) { %>
+<div class="mx-auto" style="width: 400px;"  >
+  <div class="col my-3 m-3" >
+    <div class="alert alert-danger border bg-danger text-center text-white border-0">
+      <% errors.forEach(erro => { %>
+      <%= erro %><br>
+      <% }); %>
+    </div>
+  </div>
+</div>
+<% } %>
+
+<% if (success.length > 0) { %>
+  <div class="mx-auto" style="width: 400px;"  >
+  <div class="col my-3">
+    <div class="alert alert-success border bg-success text-center text-white border-0">
+      <% success.forEach(success => { %>
+      <%= success %><br>
+      <% }); %>
+    </div>
+  </div>
+</div>
+<% } %>
