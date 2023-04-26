@@ -1,13 +1,10 @@
-const dotenv = require('dotenv');
-dotenv.config();
+require('dotenv').config({path:'/env'});
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-mongoose.connect(process.env.CONNECTIONSTRING,
+mongoose.connect("mongodb+srv://gabrielgh21415:92552334@cluster0.frefrya.mongodb.net/?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
   })
   .then(() => {
     app.emit('pronto');
